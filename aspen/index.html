@@ -83,8 +83,8 @@
       <span>MESA EDGE AXE</span>
     </a>
     <div class="nav-right">
+      <a class="nav-link" href="/events/">What We Do</a>
       <a class="nav-link" href="/">Home</a>
-      <a class="nav-link" href="#setups">Setups</a>
       <a class="nav-link" href="tel:+19703191351">(970) 319-1351</a>
       <a class="btn btn-sunset" href="#contact">Get a Quote</a>
     </div>
@@ -239,12 +239,8 @@
         <div class="label">Call or Text</div>
         <div class="value">(970) 319-1351</div>
       </a>
-      <a class="ccard" href="mailto:keytonyoung@gmail.com?subject=Aspen%20Area%20Axe%20Throwing%20Quote">
-        <div class="label">Email</div>
-        <div class="value">keytonyoung@gmail.com</div>
-      </a>
     </div>
-    <form class="quote-form" action="#contact" method="POST">
+    <form class="quote-form" action="https://formspree.io/f/xljepaey" method="POST">
       <div class="row">
         <div class="field"><label for="name">Your name</label><input id="name" type="text" name="name" autocomplete="name" required></div>
         <div class="field"><label for="email">Email</label><input id="email" type="email" name="email" autocomplete="email" required></div>
@@ -284,10 +280,10 @@
       <span>© 2026 Mesa Edge Axe · Grand Junction, CO</span>
     </div>
     <div class="foot-links">
+      <a href="/events/">What We Do</a>
       <a href="/">Home</a>
       <a href="/axd-babe/">Formerly AX'D BABE</a>
       <a href="tel:+19703191351">(970) 319-1351</a>
-      <a href="mailto:keytonyoung@gmail.com">Email</a>
     </div>
   </div>
 </footer>
@@ -296,28 +292,9 @@
 (function(){
   var f=document.querySelector('.quote-form'); if(!f) return;
   var s=document.getElementById('formStatus');
-  var act=f.getAttribute('action')||'';
-  var live = act.indexOf('formspree.io') >= 0;
-  function val(n){ var el=f.querySelector('[name="'+n+'"]'); return el ? el.value.trim() : ''; }
   f.addEventListener('submit', function(e){
     e.preventDefault();
     var btn=f.querySelector('button[type=submit]');
-    if(!live){
-      var body = 'Name: '+val('name')+'\n'
-               + 'Email: '+val('email')+'\n'
-               + 'Phone: '+val('phone')+'\n'
-               + 'Event date: '+val('event_date')+'\n'
-               + 'Venue or town: '+val('location')+'\n'
-               + 'Approx. guests: '+val('guest_count')+'\n'
-               + 'Setup: '+val('setup')+'\n\n'
-               + val('message');
-      s.textContent='Opening your email app \u2014 if nothing happens, call (970) 319-1351.';
-      s.style.color='#46505B';
-      window.location.href='mailto:keytonyoung@gmail.com?subject='
-        + encodeURIComponent('Axe Throwing Quote Request')
-        + '&body=' + encodeURIComponent(body);
-      return;
-    }
     btn.disabled=true; s.textContent='Sending\u2026'; s.style.color='#46505B';
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
       .then(function(r){
@@ -329,6 +306,8 @@
   });
 })();
 </script>
+
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aab5e27c30af4177be050d6101fcc87a"}'></script>
 
 </body>
 </html>
