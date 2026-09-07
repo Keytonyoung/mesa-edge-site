@@ -177,7 +177,7 @@ section h3{font-size:1.35rem;margin-bottom:.5rem}
 footer{background:var(--slate-deep);color:#9AA4B0;padding:2.2rem 0;font-size:.88rem}
 .foot-inner{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
 .foot-brand{display:flex;align-items:center;gap:.6rem}
-.foot-brand img{height:36px}
+.foot-brand img{height:36px;width:auto}
 footer a{color:var(--cloud);text-decoration:none}
 footer a:hover{color:var(--sunset)}
 .foot-links{display:flex;gap:1rem;flex-wrap:wrap}
