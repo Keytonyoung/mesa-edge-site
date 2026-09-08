@@ -45,15 +45,40 @@ a{color:var(--sunset-deep)}
 
 /* Nav */
 nav{position:sticky;top:0;z-index:50;background:rgba(245,243,238,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--cloud-deep)}
-.nav-inner{max-width:var(--maxw);margin:0 auto;padding:.65rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav-inner{
+  max-width:var(--maxw);margin:0 auto;padding:.65rem 1.4rem;
+  display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;order:1;margin-right:auto}
 .brand img{height:44px;width:auto}
 .brand span{font-family:'Big Shoulders','Hanken Grotesk',sans-serif;font-weight:800;font-size:1.35rem;letter-spacing:.04em;color:var(--slate-deep)}
-.nav-right{display:flex;align-items:center;gap:1.1rem}
-.nav-link{font-weight:700;color:var(--slate-deep);text-decoration:none;font-size:.92rem}
+.nav-links{order:2;display:flex;align-items:center;gap:1.15rem}
+.nav-cta{order:3}
+.nav-link{
+  font-weight:700;color:var(--slate-deep);text-decoration:none;font-size:.92rem;
+  white-space:nowrap;padding:.2rem 0;border-bottom:2px solid transparent;
+}
 .nav-link:hover{color:var(--sunset-deep)}
-.nav-right .btn{padding:.55rem 1.1rem;font-size:.9rem}
-@media(max-width:700px){.nav-link{display:none}.brand span{font-size:1.1rem}}
+.nav-link[aria-current="page"]{color:var(--sunset-deep);border-bottom-color:var(--sunset)}
+.nav-inner .btn{padding:.55rem 1.1rem;font-size:.9rem}
+
+@media(max-width:900px){
+  .nav-inner{padding-bottom:0;row-gap:0}
+  .nav-cta{order:2}
+  .nav-links{
+    order:3;flex:0 0 100%;width:100%;
+    justify-content:flex-start;gap:1.35rem;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;-ms-overflow-style:none;
+    margin:.55rem -1.4rem 0;padding:.55rem 1.4rem;
+    border-top:1px solid var(--cloud-deep);
+  }
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-link{font-size:.9rem}
+  .brand span{font-size:1.12rem}
+  .brand img{height:38px}
+}
+@media(max-width:400px){.brand span{font-size:1rem}}
 
 /* Hero */
 .hero{padding:4.2rem 0 3.4rem;position:relative;overflow:hidden}
@@ -188,3 +213,26 @@ footer a{color:var(--cloud);text-decoration:none}
 footer a:hover{color:var(--sunset)}
 .foot-links{display:flex;gap:1rem;flex-wrap:wrap}
 :focus-visible{outline:3px solid var(--sunset);outline-offset:2px}
+
+
+/* ---------- Comparison table ---------- */
+.cmp-wrap{overflow-x:auto;margin-top:2rem;border:1px solid var(--cloud-deep);border-radius:10px;background:#fff}
+table.cmp{border-collapse:collapse;width:100%;min-width:34rem;font-size:.95rem}
+table.cmp th,table.cmp td{text-align:left;padding:.9rem 1.1rem;border-bottom:1px solid var(--cloud-deep);vertical-align:top}
+table.cmp thead th{
+  font-family:'Big Shoulders','Hanken Grotesk',sans-serif;font-weight:800;text-transform:uppercase;
+  letter-spacing:.04em;font-size:1.15rem;color:var(--slate-deep);background:var(--cloud);
+}
+table.cmp tbody th{font-weight:700;color:var(--slate-deep);width:11rem;background:var(--cloud)}
+table.cmp td{color:var(--muted)}
+table.cmp tr:last-child th,table.cmp tr:last-child td{border-bottom:0}
+
+/* ---------- FAQ groups ---------- */
+.faq-group{margin-bottom:2.6rem}
+.faq-group h3{font-size:1.5rem;margin-bottom:.9rem;color:var(--slate-deep)}
+
+/* ---------- Quote page ---------- */
+.quote-lead{max-width:40rem;margin:0 auto 2rem;color:var(--muted);text-align:center}
+.next-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:52rem;margin:2.6rem auto 0}
+@media(max-width:720px){.next-steps{grid-template-columns:1fr}}
+.next-steps .step{text-align:left}
