@@ -118,8 +118,14 @@ section h3{font-size:1.35rem;margin-bottom:.5rem}
 
 /* Areas */
 .areas{background:#fff;border-top:1px solid var(--cloud-deep);border-bottom:1px solid var(--cloud-deep)}
-.town-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.7rem;margin-top:1.6rem}
-.town{background:var(--cloud);border:1px solid var(--cloud-deep);border-radius:8px;padding:.75rem 1rem;font-weight:600;font-size:.95rem;color:var(--slate-deep)}
+.town-grid{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.6rem;max-width:52rem}
+.town{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--cloud);border:1px solid var(--cloud-deep);border-radius:6px;
+  padding:.5rem .95rem;font-weight:600;font-size:.95rem;color:var(--slate-deep);
+  white-space:nowrap;
+}
+.town::before{content:"";width:.35rem;height:.35rem;background:var(--sunset);transform:rotate(45deg);flex:none;opacity:.75}
 
 /* Pricing */
 .pricing{background:var(--slate-deep);color:var(--cloud);text-align:center}
